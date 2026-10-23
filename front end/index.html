@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="Turn complex questions into structured research reports with an AI research workflow.">
+  <title>Mr. Jitesh Research Studio — AI Research Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#topic">Skip to research input</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="Research Studio home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M5 16.2 12.2 23 27 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" opacity=".35"/></svg>
+        </span>
+        <span class="brand-copy">research<span>studio</span><small>AI RESEARCH WORKSPACE</small></span>
+      </a>
+      <nav class="bar-actions" aria-label="Backend controls">
+        <button type="button" id="status" class="status" data-state="checking" title="Click to re-check the backend">
+          <span class="dot" aria-hidden="true"></span><span id="status-text">Checking backend…</span>
+        </button>
+        <a id="docs-link" class="docs-link" target="_blank" rel="noopener noreferrer"><span>API docs</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4h9v9M16 4 8 12M15 11v4H4V4h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> RESEARCH, REIMAGINED <span class="eyebrow-pill">MULTI-AGENT AI</span></div>
+        <h1 id="hero-title">From a question<br>to <span>clear insight.</span></h1>
+        <p class="lede">A focused research workspace that searches the web, reads relevant sources, writes a structured report, and puts the result through a critical review.</p>
+        <div class="hero-proof">
+          <span class="proof-icon" aria-hidden="true">✦</span>
+          <span>Four coordinated stages. One research report.</span>
+        </div>
+      </div>
+
+      <aside class="workflow-preview" aria-label="Research workflow overview">
+        <div class="preview-top">
+          <div><span class="preview-kicker">YOUR RESEARCH TEAM</span><h2>Built to think in steps.</h2></div>
+          <span class="orbit-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4"/><circle cx="24" cy="24" r="8" fill="currentColor" fill-opacity=".12" stroke="currentColor" stroke-width="1.5"/><path d="m21 24 2 2 4-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <div class="preview-steps">
+          <div class="preview-step"><span class="step-icon search-icon">⌕</span><span><strong>Discover</strong><small>Search relevant sources</small></span><span class="step-number">01</span></div>
+          <div class="step-connector"></div>
+          <div class="preview-step"><span class="step-icon read-icon">↗</span><span><strong>Understand</strong><small>Read source material</small></span><span class="step-number">02</span></div>
+          <div class="step-connector"></div>
+          <div class="preview-step"><span class="step-icon write-icon">✎</span><span><strong>Synthesize</strong><small>Draft the report</small></span><span class="step-number">03</span></div>
+          <div class="step-connector"></div>
+          <div class="preview-step"><span class="step-icon review-icon">✓</span><span><strong>Challenge</strong><small>Critique the findings</small></span><span class="step-number">04</span></div>
+        </div>
+        <div class="preview-foot"><span class="live-dot"></span> Designed for evidence-led exploration</div>
+      </aside>
+    </section>
+
+    <section class="compose-panel" aria-labelledby="compose-title">
+      <div class="panel-heading">
+        <div><span class="section-kicker">START WITH A QUESTION</span><h2 id="compose-title">What would you like to explore?</h2></div>
+        <span class="input-limit">UP TO 500 CHARACTERS</span>
+      </div>
+      <form id="form" novalidate>
+        <label class="sr-only" for="topic">Research topic</label>
+        <div class="field">
+          <textarea id="topic" rows="3" maxlength="500" placeholder="Ask a specific question, investigate a technology, or explore a complex topic…" aria-describedby="topic-hint topic-error"></textarea>
+          <div class="field-foot">
+            <span id="topic-hint"><span class="keyboard-key">⌘</span><span class="keyboard-key">↵</span> to start · Enter adds a new line</span>
+            <span id="counter" class="counter" aria-live="off">0 / 500</span>
+          </div>
+        </div>
+        <p id="topic-error" class="field-error" role="alert" hidden></p>
+
+        <div class="controls">
+          <fieldset class="modes">
+            <legend class="mode-legend">RESPONSE MODE</legend>
+            <label class="mode"><input type="radio" name="mode" value="stream" checked><span class="mode-icon">↗</span><span class="mode-copy"><strong>Live progress</strong><small>Follow workflow events</small></span></label>
+            <label class="mode"><input type="radio" name="mode" value="standard"><span class="mode-icon">≡</span><span class="mode-copy"><strong>Standard</strong><small>Show results at the end</small></span></label>
+          </fieldset>
+          <div class="cta">
+            <button type="button" id="cancel" class="btn secondary" hidden>Cancel run</button>
+            <button type="submit" id="submit" class="btn primary"><span class="spinner" aria-hidden="true"></span><span id="submit-label">Generate research</span><svg class="button-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </form>
+      <div class="suggestions">
+        <span class="suggestions-label">TRY EXPLORING</span>
+        <div class="chips" id="chips" aria-label="Example topics">
+          <button type="button" class="chip"><span>✦</span> Multi-agent AI systems</button>
+          <button type="button" class="chip"><span>✦</span> Solid-state batteries</button>
+          <button type="button" class="chip"><span>✦</span> RAG and hallucinations</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="empty" class="empty">
+      <div class="empty-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><rect x="10" y="7" width="27" height="34" rx="5" stroke="currentColor" stroke-width="1.5"/><path d="M17 17h13M17 23h13M17 29h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="35" cy="34" r="8" fill="#fff" stroke="currentColor" stroke-width="1.5"/><path d="m32 34 2 2 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><span class="section-kicker">YOUR WORKSPACE</span><h2>Your report will take shape here.</h2><p>Start with a topic above. Your report, critic review, and available source material will appear here when the backend returns them.</p></div>
+      <div class="empty-badge"><span></span> Ready when you are</div>
+    </section>
+
+    <section id="progress" class="progress-panel" aria-labelledby="progress-title" hidden>
+      <div class="progress-heading"><div><span class="section-kicker">WORKFLOW STATUS</span><h2 id="progress-title">Research in progress</h2></div><span class="progress-tag"><span class="live-dot"></span> Active run</span></div>
+      <ol class="stages" id="stages">
+        <li data-stage="search" data-state="waiting"><span class="mark" aria-hidden="true"></span><span class="s-name">Web search</span><span class="s-state">Waiting</span></li>
+        <li data-stage="reader" data-state="waiting"><span class="mark" aria-hidden="true"></span><span class="s-name">Source reading</span><span class="s-state">Waiting</span></li>
+        <li data-stage="writer" data-state="waiting"><span class="mark" aria-hidden="true"></span><span class="s-name">Report writing</span><span class="s-state">Waiting</span></li>
+        <li data-stage="critic" data-state="waiting"><span class="mark" aria-hidden="true"></span><span class="s-name">Critic review</span><span class="s-state">Waiting</span></li>
+      </ol>
+      <div class="bar-track" id="bar" aria-hidden="true"><span></span></div>
+      <p id="progress-note" class="muted" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="error" class="alert" role="alert" hidden>
+      <div><span class="section-kicker">NEEDS ATTENTION</span><h2 id="error-title"></h2><p id="error-msg"></p><p id="error-hint" class="muted"></p></div>
+      <button type="button" id="retry" class="btn secondary">Try again</button>
+    </section>
+
+    <section id="results" hidden aria-labelledby="result-title">
+      <div class="results-head"><div><span class="section-kicker">RESEARCH OUTPUT</span><h2 id="result-title" tabindex="-1"></h2></div><button type="button" id="reset" class="btn secondary">＋ New research</button></div>
+      <div class="results-grid">
+        <article class="card report-card" aria-labelledby="report-heading">
+          <div class="card-head"><div><span class="section-kicker">SYNTHESIZED FINDINGS</span><h3 id="report-heading">Research report</h3></div><div class="row"><button type="button" class="btn ghost small" id="copy-report">Copy report</button><button type="button" class="btn secondary small" id="download-report">Download .md</button></div></div>
+          <div id="report" class="prose"></div>
+        </article>
+        <aside class="card critic-card" aria-labelledby="critic-heading">
+          <div class="critic-orb" aria-hidden="true">✳</div><div class="card-head"><div><span class="section-kicker">QUALITY REVIEW</span><h3 id="critic-heading">Critic feedback</h3></div><button type="button" class="btn ghost small" id="copy-critic">Copy</button></div>
+          <div id="critic"></div>
+          <p class="muted fine">AI-generated review is a useful prompt for judgment, not an independently verified quality score.</p>
+        </aside>
+      </div>
+      <div class="details"><details id="d-sources"><summary><span class="detail-symbol">↗</span> Source links <span class="count" id="sources-count"></span></summary><div class="d-body"><ul id="sources" class="sources"></ul></div></details><details><summary><span class="detail-symbol">⌕</span> Search results</summary><div class="d-body"><pre id="search" class="raw"></pre></div></details><details><summary><span class="detail-symbol">≋</span> Scraped content</summary><div class="d-body"><pre id="scraped" class="raw"></pre></div></details></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><span class="footer-brand">research<span>studio</span></span><span>Built for thoughtful research. Results are not saved after you close or reload this page.</span><span class="footer-right">LIGHT BY DESIGN <span>✦</span></span></div></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

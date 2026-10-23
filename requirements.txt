@@ -1,0 +1,60 @@
+# Core LangChain ecosystem
+langchain
+langchain-core
+langchain-community
+langchain-openai
+
+# LLM API clients
+openai
+groq
+openrouter
+
+# Web search tools
+tavily-python
+
+# Web scraping and HTTP requests
+beautifulsoup4
+requests
+lxml
+
+# Environment variables and secrets
+python-dotenv
+
+# Async support
+aiohttp
+
+# Data handling
+pandas
+
+# Token counting and text utilities
+tiktoken
+
+# Logging and debugging
+rich
+
+# Retry and robustness
+tenacity
+
+# Fast JSON processing
+orjson
+
+# Data validation and structured outputs
+pydantic
+
+# HTML parsing and cleanup
+html5lib
+
+
+
+# additional
+
+langchain
+langchain-core
+langchain-groq
+python-dotenv
+langchain-openrouter
+langchain-community
+tavily
+rich
+uvicorn
+fastapi
