@@ -54,7 +54,6 @@ langchain-groq
 python-dotenv
 langchain-openrouter
 langchain-community
-tavily
 rich
 uvicorn
 fastapi
