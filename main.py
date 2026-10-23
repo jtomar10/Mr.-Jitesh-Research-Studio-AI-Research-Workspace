@@ -1,5 +1,6 @@
 # main.py
-
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
 import asyncio
 import json
 import logging
@@ -137,3 +138,13 @@ async def research_stream(request: ResearchRequest):
             "X-Accel-Buffering": "no",
         },
     )
+
+
+# Serve the frontend after defining all API routes.
+FRONTEND_DIR = Path(__file__).parent / "front end"
+
+app.mount(
+    "/",
+    StaticFiles(directory=FRONTEND_DIR, html=True),
+    name="frontend",
+)
