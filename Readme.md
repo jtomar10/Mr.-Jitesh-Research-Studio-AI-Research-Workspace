@@ -211,6 +211,10 @@ This project is open source and belongs to Jitesh. You are welcome to explore, u
 
 For redistribution and licensing clarity, a standard open-source license such as the MIT License can be added to the repository.
 
+## live demo --   https://mr-jitesh-research-studio-ai-resear.vercel.app
+
 ---
+
+
 
 **Built with Python, FastAPI, LangChain, OpenRouter, Tavily, HTML, CSS, and JavaScript.**
